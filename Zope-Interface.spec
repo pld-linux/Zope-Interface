@@ -2,7 +2,7 @@ Summary:	zope.interface package used in Zope 3
 Summary(pl):	Modu³ interface u¿ywany w Zope 3
 Name:		ZopeInterface
 Version:	3.0.1
-Release:	1
+Release:	2
 License:	ZPL 2.0
 Group:		Development/Tools
 Source0:	http://www.zope.org/Products/ZopeInterface/%{version}final/%{name}-%{version}.tgz
@@ -36,13 +36,14 @@ python ./setup.py install \
 %py_ocomp $RPM_BUILD_ROOT%{py_sitedir}/zope
 
 find $RPM_BUILD_ROOT -type f -name "*.py" -exec rm -rf {} \;;
+rm -rf $RPM_BUILD_ROOT/%{py_sitedir}/zope/README.txt
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc %{py_sitedir}/zope/README.txt
+%doc README.txt
 %{py_sitedir}/zope/*.cfg
 %dir %{py_sitedir}/zope
 %{py_sitedir}/zope/*.py[co]
