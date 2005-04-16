@@ -20,7 +20,7 @@ zope.interface package used in Zope 3.
 Modu³ interface u¿ywany w Zope 3.
 
 %prep
-%setup -q -n %{name}-%{version}
+%setup -q
 
 %build
 python ./setup.py build
