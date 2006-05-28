@@ -2,11 +2,12 @@ Summary:	zope.interface package used in Zope 3
 Summary(pl):	Modu³ interface u¿ywany w Zope 3
 Name:		ZopeInterface
 Version:	3.0.1
-Release:	2
+Release:	3
 License:	ZPL 2.0
 Group:		Development/Tools
 Source0:	http://www.zope.org/Products/ZopeInterface/%{version}final/%{name}-%{version}.tgz
 # Source0-md5:	114f302c2b132d43ad4e01d108b4d192
+Patch0:		%{name}-build.patch
 URL:		http://www.zope.org/Products/ZopeInterface/
 BuildRequires:	python
 BuildRequires:	python-devel
@@ -21,6 +22,7 @@ Modu³ interface u¿ywany w Zope 3.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 python ./setup.py build
