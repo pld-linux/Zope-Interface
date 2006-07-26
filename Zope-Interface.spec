@@ -38,7 +38,7 @@ python ./setup.py install \
 %py_ocomp $RPM_BUILD_ROOT%{py_sitedir}/zope
 
 find $RPM_BUILD_ROOT -type f -name "*.py" -exec rm -rf {} \;;
-rm -rf $RPM_BUILD_ROOT/%{py_sitedir}/zope/README.txt
+rm -rf $RPM_BUILD_ROOT%{py_sitedir}/zope/README.txt
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -57,9 +57,9 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{py_sitedir}/zope/interface/common
 %{py_sitedir}/zope/interface/common/*.py[co]
 %dir %{py_sitedir}/zope/interface/common/tests
-%{py_sitedir}/zope/interface/common/tests/*.py[co] 
+%{py_sitedir}/zope/interface/common/tests/*.py[co]
 %dir %{py_sitedir}/zope/interface/tests
-%{py_sitedir}/zope/interface/tests/*.py[co] 
+%{py_sitedir}/zope/interface/tests/*.py[co]
 %{py_sitedir}/zope/interface/tests/*.txt
 %dir %{py_sitedir}/zope/testing
 %{py_sitedir}/zope/testing/*.py[co]
