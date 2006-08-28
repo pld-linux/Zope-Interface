@@ -2,7 +2,7 @@ Summary:	zope.interface package used in Zope 3
 Summary(pl):	Modu³ interface u¿ywany w Zope 3
 Name:		ZopeInterface
 Version:	3.0.1
-Release:	3
+Release:	4
 License:	ZPL 2.0
 Group:		Development/Tools
 Source0:	http://www.zope.org/Products/ZopeInterface/%{version}final/%{name}-%{version}.tgz
