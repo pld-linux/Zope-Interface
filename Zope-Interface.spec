@@ -1,5 +1,5 @@
 Summary:	zope.interface package used in Zope 3
-Summary(pl):	Modu≥ interface uøywany w Zope 3
+Summary(pl.UTF-8):   Modu≈Ç interface u≈ºywany w Zope 3
 Name:		ZopeInterface
 Version:	3.0.1
 Release:	5
@@ -17,8 +17,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 zope.interface package used in Zope 3.
 
-%description -l pl
-Modu≥ interface uøywany w Zope 3.
+%description -l pl.UTF-8
+Modu≈Ç interface u≈ºywany w Zope 3.
 
 %prep
 %setup -q
