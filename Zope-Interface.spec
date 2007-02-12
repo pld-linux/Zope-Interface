@@ -1,5 +1,5 @@
 Summary:	zope.interface package used in Zope 3
-Summary(pl.UTF-8):   Moduł interface używany w Zope 3
+Summary(pl.UTF-8):	Moduł interface używany w Zope 3
 Name:		ZopeInterface
 Version:	3.0.1
 Release:	5
