@@ -1,13 +1,12 @@
 Summary:	zope.interface package used in Zope 3
 Summary(pl.UTF-8):	Moduł interface używany w Zope 3
-Name:		ZopeInterface
-Version:	3.0.1
-Release:	5
+Name:		Zope-Interface
+Version:	3.4.0
+Release:	0.1
 License:	ZPL 2.0
 Group:		Development/Tools
-Source0:	http://www.zope.org/Products/ZopeInterface/%{version}final/%{name}-%{version}.tgz
-# Source0-md5:	114f302c2b132d43ad4e01d108b4d192
-Patch0:		%{name}-build.patch
+Source0:	http://download.zope.org/distribution/zope.interface-%{version}.tar.gz
+# Source0-md5:	0be9fd80b7bb6bee520e56eba7d29c90
 URL:		http://www.zope.org/Products/ZopeInterface/
 BuildRequires:	python
 BuildRequires:	python-devel
@@ -21,8 +20,7 @@ zope.interface package used in Zope 3.
 Moduł interface używany w Zope 3.
 
 %prep
-%setup -q
-%patch0 -p1
+%setup -q -n zope.interface-%{version}
 
 %build
 python ./setup.py build
@@ -34,11 +32,7 @@ python ./setup.py install \
 	--optimize 2 \
 	--root=$RPM_BUILD_ROOT
 
-%py_comp $RPM_BUILD_ROOT%{py_sitedir}/zope
-%py_ocomp $RPM_BUILD_ROOT%{py_sitedir}/zope
-
-find $RPM_BUILD_ROOT -type f -name "*.py" -exec rm -rf {} \;;
-rm -rf $RPM_BUILD_ROOT%{py_sitedir}/zope/README.txt
+%{py_postclean}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -46,20 +40,6 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc README.txt
-%{py_sitedir}/zope/*.cfg
-%dir %{py_sitedir}/zope
-%{py_sitedir}/zope/*.py[co]
-%dir %{py_sitedir}/zope/interface
-%{py_sitedir}/zope/interface/*.py[co]
-%{py_sitedir}/zope/interface/*.cfg
-%{py_sitedir}/zope/interface/*.so
-%{py_sitedir}/zope/interface/*.txt
-%dir %{py_sitedir}/zope/interface/common
-%{py_sitedir}/zope/interface/common/*.py[co]
-%dir %{py_sitedir}/zope/interface/common/tests
-%{py_sitedir}/zope/interface/common/tests/*.py[co]
-%dir %{py_sitedir}/zope/interface/tests
-%{py_sitedir}/zope/interface/tests/*.py[co]
-%{py_sitedir}/zope/interface/tests/*.txt
-%dir %{py_sitedir}/zope/testing
-%{py_sitedir}/zope/testing/*.py[co]
+%{py_sitedir}/zope/interface
+%{py_sitedir}/zope*egg*
+%{py_sitedir}/zope*pth
