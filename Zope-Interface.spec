@@ -4,7 +4,7 @@ Name:		Zope-Interface
 Version:	3.4.0
 Release:	1
 License:	ZPL 2.1
-Group:		Python/Libraries
+Group:		Libraries/Python
 Source0:	http://download.zope.org/distribution/zope.interface-%{version}.tar.gz
 # Source0-md5:	0be9fd80b7bb6bee520e56eba7d29c90
 URL:		http://www.zope.org/Products/ZopeInterface/
