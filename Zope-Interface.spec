@@ -8,18 +8,21 @@ Group:		Libraries/Python
 Source0:	http://download.zope.org/distribution/zope.interface-%{version}.tar.gz
 # Source0-md5:	0be9fd80b7bb6bee520e56eba7d29c90
 URL:		http://www.zope.org/Products/ZopeInterface/
-BuildRequires:	python
-BuildRequires:	python-devel
+BuildRequires:	python >= 1:2.5
+BuildRequires:	python-devel >= 1:2.5
+BuildRequires:	rpm-pythonprov
+BuildRequires:	rpmbuild(macros) >= 1.219
 %pyrequires_eq	python-modules
-Provides:		ZopeInterface
+Provides:	ZopeInterface
+Obsoletes:	ZopeInterface
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 Python 'interface' concept implementation.
 
 %description -l pl.UTF-8
-Implementacja interfejsów (abstrakcyjnych reprezentacji klas) dla języka
-Python.
+Implementacja interfejsów (abstrakcyjnych reprezentacji klas) dla
+języka Python.
 
 %prep
 %setup -q -n zope.interface-%{version}
@@ -34,7 +37,7 @@ python ./setup.py install \
 	--optimize 2 \
 	--root=$RPM_BUILD_ROOT
 
-%{py_postclean}
+%py_postclean
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -43,5 +46,5 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc README.txt
 %{py_sitedir}/zope/interface
-%{py_sitedir}/zope*egg*
-%{py_sitedir}/zope*pth
+%{py_sitedir}/zope.interface-*.egg-info
+%{py_sitedir}/zope.interface-*-nspkg.pth
