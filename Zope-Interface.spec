@@ -38,13 +38,21 @@ python ./setup.py install \
 	--root=$RPM_BUILD_ROOT
 
 %py_postclean
+rm $RPM_BUILD_ROOT%{py_sitedir}/zope/interface/*.{txt,c}
+rm -r $RPM_BUILD_ROOT%{py_sitedir}/zope/interface/common/tests
+rm -r $RPM_BUILD_ROOT%{py_sitedir}/zope/interface/tests
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README.txt
-%{py_sitedir}/zope/interface
+%doc CHANGES.txt src/zope/interface/{README,human}.txt
+%lang(ru) %doc src/zope/interface/{README,human}.ru.txt
+%dir %{py_sitedir}/zope/interface
+%{py_sitedir}/zope/interface/*.cfg
+%{py_sitedir}/zope/interface/*.py[co]
+%attr(755,root,root) %{py_sitedir}/zope/interface/_zope_interface_coptimizations.so
+%{py_sitedir}/zope/interface/common
 %{py_sitedir}/zope.interface-*.egg-info
 %{py_sitedir}/zope.interface-*-nspkg.pth
