@@ -10,6 +10,7 @@ Source0:	http://download.zope.org/distribution/zope.interface-%{version}.tar.gz
 URL:		http://www.zope.org/Products/ZopeInterface/
 BuildRequires:	python >= 1:2.5
 BuildRequires:	python-devel >= 1:2.5
+BuildRequires:	python-setuptools
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.219
 %pyrequires_eq	python-modules
