@@ -2,7 +2,7 @@ Summary:	Python 'interface' concept implementation
 Summary(pl.UTF-8):	Implementacja interfejsów dla języka Python
 Name:		Zope-Interface
 Version:	3.4.0
-Release:	1
+Release:	2
 License:	ZPL 2.1
 Group:		Libraries/Python
 Source0:	http://download.zope.org/distribution/zope.interface-%{version}.tar.gz
@@ -50,6 +50,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc CHANGES.txt src/zope/interface/{README,human}.txt
 %lang(ru) %doc src/zope/interface/{README,human}.ru.txt
+%dir %{py_sitedir}/zope
 %dir %{py_sitedir}/zope/interface
 %{py_sitedir}/zope/interface/*.cfg
 %{py_sitedir}/zope/interface/*.py[co]
