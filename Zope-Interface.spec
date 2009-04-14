@@ -8,8 +8,8 @@ Group:		Libraries/Python
 Source0:	http://pypi.python.org/packages/source/z/zope.interface/zope.interface-%{version}.zip
 # Source0-md5:	478d05add7cd7faf25a2fd880a739ddb
 URL:		http://www.zope.org/Products/ZopeInterface/
-BuildRequires:	python >= 1:2.5
-BuildRequires:	python-devel >= 1:2.5
+BuildRequires:	python
+BuildRequires:	python-devel
 BuildRequires:	python-setuptools
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.219
@@ -32,12 +32,12 @@ języka Python.
 %setup -q -n zope.interface-%{version}
 
 %build
-python ./setup.py build
+export CFLAGS="%{rpmcflags}"
+%{__python} ./setup.py build
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
-python ./setup.py install \
+%{__python} ./setup.py install \
 	--optimize 2 \
 	--root=$RPM_BUILD_ROOT
 
