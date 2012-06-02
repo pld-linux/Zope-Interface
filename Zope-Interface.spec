@@ -1,12 +1,12 @@
 Summary:	Python 'interface' concept implementation
 Summary(pl.UTF-8):	Implementacja interfejsów dla języka Python
 Name:		Zope-Interface
-Version:	3.8.0
+Version:	4.0.1
 Release:	1
 License:	ZPL 2.1
 Group:		Libraries/Python
 Source0:	http://pypi.python.org/packages/source/z/zope.interface/zope.interface-%{version}.tar.gz
-# Source0-md5:	8ab837320b4532774c9c89f030d2a389
+# Source0-md5:	d171f8f8a6997409c7680f1dbb3b7e45
 URL:		http://www.zope.org/Products/ZopeInterface/
 BuildRequires:	python
 BuildRequires:	python-devel
@@ -42,7 +42,7 @@ rm -rf $RPM_BUILD_ROOT
 	--root=$RPM_BUILD_ROOT
 
 %py_postclean
-rm $RPM_BUILD_ROOT%{py_sitedir}/zope/interface/*.{txt,c}
+rm $RPM_BUILD_ROOT%{py_sitedir}/zope/interface/*.c
 rm -r $RPM_BUILD_ROOT%{py_sitedir}/zope/interface/common/tests
 rm -r $RPM_BUILD_ROOT%{py_sitedir}/zope/interface/tests
 
@@ -51,8 +51,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc CHANGES.txt src/zope/interface/{README,human}.txt
-%lang(ru) %doc src/zope/interface/{README,human}.ru.txt
+%doc CHANGES.txt
 %dir %{py_sitedir}/zope/interface
 %{py_sitedir}/zope/interface/*.py[co]
 %attr(755,root,root) %{py_sitedir}/zope/interface/_zope_interface_coptimizations.so
