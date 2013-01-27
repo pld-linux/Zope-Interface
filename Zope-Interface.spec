@@ -2,7 +2,7 @@ Summary:	Python 'interface' concept implementation
 Summary(pl.UTF-8):	Implementacja interfejsów dla języka Python
 Name:		Zope-Interface
 Version:	4.0.1
-Release:	1
+Release:	2
 License:	ZPL 2.1
 Group:		Libraries/Python
 Source0:	http://pypi.python.org/packages/source/z/zope.interface/zope.interface-%{version}.tar.gz
@@ -13,9 +13,8 @@ BuildRequires:	python-devel
 BuildRequires:	python-setuptools
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.219
-%pyrequires_eq	python-modules
-# set this requirement explicitly, so people know where %py_sitedir/zope
-# can be found
+Requires:	python-modules
+# set this requirement explicitly, so people know where %py_sitedir/zope can be found
 Requires:	Zope-dirs
 Provides:	ZopeInterface
 Obsoletes:	ZopeInterface
@@ -32,19 +31,22 @@ języka Python.
 %setup -q -n zope.interface-%{version}
 
 %build
-export CFLAGS="%{rpmcflags}"
-%{__python} ./setup.py build
+CC="%{__cc}" \
+CFLAGS="%{rpmcflags}" \
+%{__python} setup.py build
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%{__python} ./setup.py install \
-	--optimize 2 \
+%{__python} setup.py install \
+	--skip-build \
+	--optimize=2 \
 	--root=$RPM_BUILD_ROOT
 
+%{__rm} $RPM_BUILD_ROOT%{py_sitedir}/zope/interface/*.c
+%{__rm} -r $RPM_BUILD_ROOT%{py_sitedir}/zope/interface/common/tests
+%{__rm} -r $RPM_BUILD_ROOT%{py_sitedir}/zope/interface/tests
+
 %py_postclean
-rm $RPM_BUILD_ROOT%{py_sitedir}/zope/interface/*.c
-rm -r $RPM_BUILD_ROOT%{py_sitedir}/zope/interface/common/tests
-rm -r $RPM_BUILD_ROOT%{py_sitedir}/zope/interface/tests
 
 %clean
 rm -rf $RPM_BUILD_ROOT
