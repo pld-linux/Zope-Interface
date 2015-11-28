@@ -31,16 +31,11 @@ języka Python.
 %setup -q -n zope.interface-%{version}
 
 %build
-CC="%{__cc}" \
-CFLAGS="%{rpmcflags}" \
-%{__python} setup.py build
+%py_build
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%{__python} setup.py install \
-	--skip-build \
-	--optimize=2 \
-	--root=$RPM_BUILD_ROOT
+%py_install
 
 %{__rm} $RPM_BUILD_ROOT%{py_sitedir}/zope/interface/*.c
 %{__rm} -r $RPM_BUILD_ROOT%{py_sitedir}/zope/interface/common/tests
