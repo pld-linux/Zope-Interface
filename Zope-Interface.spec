@@ -12,7 +12,7 @@ BuildRequires:	python
 BuildRequires:	python-devel
 BuildRequires:	python-setuptools
 BuildRequires:	rpm-pythonprov
-BuildRequires:	rpmbuild(macros) >= 1.219
+BuildRequires:	rpmbuild(macros) >= 1.710
 Requires:	python-modules
 # set this requirement explicitly, so people know where %py_sitedir/zope can be found
 Requires:	Zope-dirs
